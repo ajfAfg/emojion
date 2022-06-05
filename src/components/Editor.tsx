@@ -104,6 +104,13 @@ export const Editor = () => {
       link.click();
     });
   };
+  const copyImage = () => {
+    domtoimage
+      .toBlob(document.getElementById("capture") as any)
+      .then((blob) => {
+        navigator.clipboard.write([new ClipboardItem({ "image/png": blob })]);
+      });
+  };
 
   return (
     <div className="sm:container md:container lg:w-[768px] /* md === 768px */ mx-auto">
@@ -126,7 +133,7 @@ export const Editor = () => {
 
       {/* TODO: Use above instead of this */}
       <div className="flex justify-end my-10">
-        <button className="btn btn-square mx-4">
+        <button className="btn btn-square mx-4" onClick={copyImage}>
           <span className="material-symbols-outlined">file_copy</span>
         </button>
         <button className="btn btn-primary" onClick={exportImage}>
