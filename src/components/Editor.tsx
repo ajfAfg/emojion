@@ -104,11 +104,17 @@ export const Editor = () => {
       link.click();
     });
   };
+
+  const [canDisplayCopied, setCanDisplayCopied] = useState(false);
   const copyImage = () => {
     domtoimage
       .toBlob(document.getElementById("capture") as any)
       .then((blob) => {
         navigator.clipboard.write([new ClipboardItem({ "image/png": blob })]);
+        setCanDisplayCopied(true);
+        setTimeout(() => {
+          setCanDisplayCopied(false);
+        }, 1000);
       });
   };
 
@@ -133,9 +139,21 @@ export const Editor = () => {
 
       {/* TODO: Use above instead of this */}
       <div className="flex justify-end my-10">
-        <button className="btn btn-square mx-4" onClick={copyImage}>
-          <span className="material-symbols-outlined">file_copy</span>
-        </button>
+        {canDisplayCopied ? (
+          <div
+            className="tooltip tooltip-open tooltip-secondary"
+            data-tip="copied!"
+          >
+            <button className="btn btn-square mx-4" onClick={copyImage}>
+              <span className="material-symbols-outlined">file_copy</span>
+            </button>
+          </div>
+        ) : (
+          <button className="btn btn-square mx-4" onClick={copyImage}>
+            <span className="material-symbols-outlined">file_copy</span>
+          </button>
+        )}
+
         <button className="btn btn-primary" onClick={exportImage}>
           Export
         </button>
