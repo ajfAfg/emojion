@@ -125,7 +125,10 @@ export const Editor = () => {
       </div> */}
 
       {/* TODO: Use above instead of this */}
-      <div className="flex justify-end  my-10">
+      <div className="flex justify-end my-10">
+        <button className="btn btn-square mx-4">
+          <span className="material-symbols-outlined">file_copy</span>
+        </button>
         <button className="btn btn-primary" onClick={exportImage}>
           Export
         </button>
