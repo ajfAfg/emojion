@@ -1,5 +1,6 @@
 import { Editor } from "@/components/Editor";
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import type { NextPage } from "next";
 
 const Home: NextPage = () => {
@@ -10,6 +11,8 @@ const Home: NextPage = () => {
       <main className="my-12">
         <Editor />
       </main>
+
+      <Footer />
     </>
   );
 };
