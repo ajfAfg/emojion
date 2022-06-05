@@ -105,6 +105,19 @@ export const Editor = () => {
     });
   };
 
+  const [canDisplayCopied, setCanDisplayCopied] = useState(false);
+  const copyImage = () => {
+    domtoimage
+      .toBlob(document.getElementById("capture") as any)
+      .then((blob) => {
+        navigator.clipboard.write([new ClipboardItem({ "image/png": blob })]);
+        setCanDisplayCopied(true);
+        setTimeout(() => {
+          setCanDisplayCopied(false);
+        }, 1000);
+      });
+  };
+
   return (
     <div className="sm:container md:container lg:w-[768px] /* md === 768px */ mx-auto">
       <Canvas id="capture" emoji={emoji} onEmojiSelect={onEmojiSelect} />
@@ -125,7 +138,22 @@ export const Editor = () => {
       </div> */}
 
       {/* TODO: Use above instead of this */}
-      <div className="flex justify-end  my-10">
+      <div className="flex justify-end my-10">
+        {canDisplayCopied ? (
+          <div
+            className="tooltip tooltip-open tooltip-secondary"
+            data-tip="copied!"
+          >
+            <button className="btn btn-square mx-4" onClick={copyImage}>
+              <span className="material-symbols-outlined">file_copy</span>
+            </button>
+          </div>
+        ) : (
+          <button className="btn btn-square mx-4" onClick={copyImage}>
+            <span className="material-symbols-outlined">file_copy</span>
+          </button>
+        )}
+
         <button className="btn btn-primary" onClick={exportImage}>
           Export
         </button>
