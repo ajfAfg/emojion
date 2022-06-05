@@ -2,16 +2,17 @@ import { useLayoutEffect, useRef, useState } from "react";
 import data from "@emoji-mart/data";
 import twemoji from "twemoji";
 import domtoimage from "dom-to-image";
+import { PickerProps } from "emoji-mart";
 
 // NOTE:
 // o: This method
 // x: Dynamic import
 // x: One `ref`
-const Picker = (props) => {
+const Picker = (props: any): JSX.Element => {
   const pickerRef = useRef();
   const moduleRef = useRef();
-  const handleDivRef = (divElem) => {
-    pickerRef.current = divElem;
+  const handleDivRef = (divElem: HTMLDivElement) => {
+    pickerRef.current = divElem as any;
     if (!moduleRef.current) {
       moduleRef.current = import("emoji-mart").then(
         (m) =>
@@ -23,13 +24,13 @@ const Picker = (props) => {
             // Twemoji cannot be displayed in the Picker.
             // set: "twitter",
           })
-      );
+      ) as any;
     }
   };
   return <div ref={handleDivRef} />;
 };
 
-const Canvas = ({ id, emoji, onEmojiSelect }) => {
+const Canvas = ({ id, emoji, onEmojiSelect }: any) => {
   useLayoutEffect(() => {
     // NOTE: **Contribute Chance**
     // The URLs are different fro png and svg, but the `parse` function does not support it.
@@ -90,13 +91,13 @@ const Canvas = ({ id, emoji, onEmojiSelect }) => {
 export const Editor = () => {
   const [emoji, setEmoji] = useState(null);
 
-  const onEmojiSelect = ({ native }) => {
+  const onEmojiSelect = ({ native }: any) => {
     console.log(native);
     setEmoji(native);
   };
 
   const exportImage = () => {
-    domtoimage.toPng(document.getElementById("capture")).then((png) => {
+    domtoimage.toPng(document.getElementById("capture") as any).then((png) => {
       const link = document.createElement("a");
       link.download = "foo.png";
       link.href = png;
