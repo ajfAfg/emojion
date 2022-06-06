@@ -13,7 +13,7 @@ export const Editor = () => {
   const exportImage = () => {
     domtoimage.toPng(document.getElementById("capture") as any).then((png) => {
       const link = document.createElement("a");
-      link.download = "foo.png";
+      link.download = "emojion.png";
       link.href = png;
       link.click();
     });
