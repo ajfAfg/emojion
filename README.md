@@ -4,7 +4,7 @@
 
 ![demo](demo.gif)
 
-Your contribution is welcome!
+**Your contribution is welcome!**
 
 ## Concepts
 
@@ -27,3 +27,7 @@ Open http://localhost:3000 with your browser to see the result.
 ## License
 
 MIT
+
+## 🥈 Award
+
+This application got an effort award in [Giiku Camp vol.3](https://talent.supporterz.jp/events/b9662de7-c325-435c-9793-dbb56568ccbc/)! For real!? [Yay!!!](https://twitter.com/geek_pjt/status/1533383589391646720?s=21&t=ULmCSsoEYSB6wAWx6tkHtA)
