@@ -42,7 +42,7 @@ export const Canvas = ({ id, emoji, onEmojiSelect }: any) => {
           {text === "" ? (
             <textarea
               rows={1}
-              className="textarea textarea-bordered resize-y w-[26rem] h-[64px] text-2xl text-neutral text-center bg-transparent border-dashed border-2 focus:textarea-accent my-8"
+              className="textarea textarea-bordered resize-y w-full sm:w-[26rem] h-[64px] text-2xl text-neutral text-center bg-transparent border-dashed border-2 focus:textarea-accent my-8"
               placeholder="Type here"
               onChange={(e) => setText(e.target.value)}
             />
