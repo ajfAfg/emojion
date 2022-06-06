@@ -4,11 +4,19 @@
 
 Your contribution is welcome!
 
+## Concepts
+
+- Simple
+  - Since the positions of an emoji and text are fixed, you only need to consider the content of them.
+- Quick operation
+  - Frequently used operations can be realized in a single step.
+
 ## Development
 
-```bash
+```sh
 git clone git@github.com:ajfAfg/emojion.git
 cd emojion
+npm install
 npm run dev
 ```
 
