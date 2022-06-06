@@ -2,6 +2,8 @@
 
 [Emojion](https://www.emojion.app/) is a web application to create and share images combined an emoji and text.
 
+![demo](demo.gif)
+
 Your contribution is welcome!
 
 ## Concepts
