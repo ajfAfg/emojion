@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import data from "@emoji-mart/data";
+import data from "@emoji-mart/data/sets/14/twitter.json";
 
 // NOTE:
 // o: This method
@@ -17,9 +17,7 @@ export const EmojiPicker = (props: any): JSX.Element => {
             ...props,
             ref: pickerRef,
             data: data,
-            // NOTE: **Contribute Chance**
-            // Twemoji cannot be displayed in the Picker.
-            // set: "twitter",
+            set: "twitter",
           })
       ) as any;
     }
