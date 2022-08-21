@@ -1,16 +1,9 @@
-import { useState } from "react";
 import domtoimage from "dom-to-image";
+import { FC } from "react";
 import { Canvas } from "./Canvas";
 import { CopyButton } from "./CopyButton";
 
-export const Editor = () => {
-  const [emoji, setEmoji] = useState(null);
-
-  const onEmojiSelect = ({ native }: any) => {
-    console.log(native);
-    setEmoji(native);
-  };
-
+export const Editor: FC = () => {
   const exportImage = () => {
     domtoimage.toPng(document.getElementById("capture") as any).then((png) => {
       const link = document.createElement("a");
@@ -30,7 +23,7 @@ export const Editor = () => {
 
   return (
     <div className="sm:container md:container lg:w-[768px] /* md === 768px */ mx-auto">
-      <Canvas id="capture" emoji={emoji} onEmojiSelect={onEmojiSelect} />
+      <Canvas id="capture" />
 
       {/* TODO: My favorite */}
       {/* <div className="flex justify-between px-20 my-10">
