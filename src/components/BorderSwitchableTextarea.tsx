@@ -12,6 +12,7 @@ export const BorderSwitchableTextarea = () => {
       className={className}
       placeholder="Type here"
       onChange={(e) => setText(e.target.value)}
+      data-testid="non-border"
     />
   );
 };
