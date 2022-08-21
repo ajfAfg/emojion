@@ -26,9 +26,24 @@ export const EmojiInputArea: FC = () => {
     });
   });
 
+  const modalId = "emoji-picker";
+  useEffect(() => {
+    const removeEmojiPicker = ({ key }: KeyboardEvent) => {
+      if (key === "Escape") {
+        // NOTE:
+        // Since DaisyUI's modal display is controlled by whether or not the input element is checked,
+        // we check it to hide the modal.
+        const element = document.getElementById(modalId)! as HTMLInputElement;
+        element.checked = false;
+      }
+    };
+    document.addEventListener("keydown", removeEmojiPicker);
+    return () => document.removeEventListener("keydown", removeEmojiPicker);
+  }, []);
+
   return (
     <>
-      <label htmlFor="my-modal" className="modal-button">
+      <label htmlFor={modalId} className="modal-button">
         {!emoji ? (
           <div className="bg-transparent w-60 h-60 mx-auto mt-12 rounded-full border-dashed border-2 flex items-center justify-center">
             <span className="text-2xl text-neutral">Select emoji</span>
@@ -38,8 +53,8 @@ export const EmojiInputArea: FC = () => {
         )}
       </label>
 
-      <input type="checkbox" id="my-modal" className="modal-toggle" />
-      <label htmlFor="my-modal" className="modal modal-bottom cursor-pointer">
+      <input type="checkbox" id={modalId} className="modal-toggle" />
+      <label htmlFor={modalId} className="modal modal-bottom cursor-pointer">
         <label htmlFor="" className="modal-action relative">
           <EmojiPicker onEmojiSelect={onEmojiSelect} />
         </label>
