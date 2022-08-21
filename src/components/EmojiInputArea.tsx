@@ -4,7 +4,7 @@ import twemoji from "twemoji";
 import { BaseEmoji, EmojiData } from "emoji-mart";
 
 export const EmojiInputArea: FC = () => {
-  const [emoji, setEmoji] = useState<string | undefined>(undefined);
+  const [emoji, setEmoji] = useState<string>("");
 
   const onEmojiSelect = (emoji: EmojiData) => {
     const { native } = emoji as BaseEmoji; // NOTE: does not support custom emoji
