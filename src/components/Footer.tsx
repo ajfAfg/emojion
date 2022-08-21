@@ -1,4 +1,6 @@
-export const Footer = () => {
+import { FC } from "react";
+
+export const Footer: FC = () => {
   return (
     <footer className="footer items-center p-4 bg-neutral text-neutral-content bottom-0">
       <div className="items-center grid-flow-col">

@@ -1,6 +1,10 @@
 import { FC, useState } from "react";
 
-export const CopyButton: FC<{ onClick: () => void }> = ({ onClick }) => {
+type Props = {
+  onClick: () => void;
+};
+
+export const CopyButton: FC<Props> = ({ onClick }) => {
   const [isClicked, setIsClicked] = useState(false);
   const copy = () => {
     onClick();
