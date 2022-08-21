@@ -12,6 +12,9 @@ export const EmojiInputArea: FC = () => {
     setEmoji(native);
   };
 
+  // NOTE:
+  // It would be natural to use the `Emoji` component for displaying emoji,
+  // but since that component is still in its infancy, it is not used at this time.
   useEffect(() => {
     // NOTE: **Contribute Chance**
     // The URLs are different fro png and svg, but the `parse` function does not support it.
