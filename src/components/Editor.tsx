@@ -1,3 +1,4 @@
+import axios from "axios";
 import domtoimage from "dom-to-image";
 import { FC } from "react";
 import { Canvas } from "./Canvas";
@@ -21,6 +22,34 @@ export const Editor: FC = () => {
       });
   };
 
+  // TODO: Move logic into another layer (e.g. use-case)
+  const openTwitterWebIntent = async () => {
+    const blobToBase64 = async (blob: Blob) => {
+      return new Promise((resolve, _) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result);
+        reader.readAsDataURL(blob);
+      }).then((encoded) => (encoded as string).split(",")[1]); // NOTE: Remove 'data:image/png;base64,'
+    };
+
+    const blob = await domtoimage.toBlob(
+      document.getElementById("capture") as Node
+    );
+    const encodedImage = await blobToBase64(blob);
+
+    const { imageUrl } = await axios({
+      method: "POST",
+      url: "/api/uploadImage",
+      data: { encodedImage },
+    }).then(({ data }) => data);
+
+    window.open(
+      `https://twitter.com/intent/tweet?url=${imageUrl}`,
+      "_blank",
+      "height=570,width=520"
+    );
+  };
+
   return (
     <div className="sm:container md:container lg:w-[768px] /* md === 768px */ mx-auto">
       <Canvas id="capture" />
@@ -41,8 +70,12 @@ export const Editor: FC = () => {
       </div> */}
 
       {/* TODO: Use above instead of this */}
-      <div className="flex justify-end my-10">
+      <div className="flex justify-end space-x-4 my-10">
         <CopyButton onClick={copyImage} />
+
+        <button className="btn btn-tweet" onClick={openTwitterWebIntent}>
+          Tweet
+        </button>
 
         <button className="btn btn-primary" onClick={exportImage}>
           Export
