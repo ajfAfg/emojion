@@ -1,3 +1,97 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* NOTE: Reference: https://usbrandcolors.com/twitter-colors/ */
+/* TODO: Darken on hover */
+.btn-outline.btn-tweet .badge {
+    --tw-border-opacity: 1;
+    /*border-color: hsl(var(--p) / var(--tw-border-opacity));*/
+    border-color: #1DA1F2;
+    --tw-bg-opacity: 1;
+    /*background-color: hsl(var(--p) / var(--tw-bg-opacity));*/
+    background-color: #1DA1F2;
+    --tw-text-opacity: 1;
+    /*color: hsl(var(--pc) / var(--tw-text-opacity));*/
+    color: #1DA1F2;
+}
+.btn-outline.btn-tweet .badge-outline {
+    --tw-border-opacity: 1;
+    /*border-color: hsl(var(--p) / var(--tw-border-opacity));*/
+    border-color: #1DA1F2;
+    background-color: transparent;
+    --tw-text-opacity: 1;
+    /*color: hsl(var(--p) / var(--tw-text-opacity));*/
+    color: #1DA1F2;
+}
+.btn-outline.btn-tweet:hover .badge {
+    --tw-border-opacity: 1;
+    /*border-color: hsl(var(--pc) / var(--tw-border-opacity));*/
+    border-color: #1DA1F2;
+    --tw-bg-opacity: 1;
+    /*background-color: hsl(var(--pc) / var(--tw-bg-opacity));*/
+    background-color: #1DA1F2;
+    --tw-text-opacity: 1;
+    /*color: hsl(var(--p) / var(--tw-text-opacity));*/
+    color: #1DA1F2;
+}
+.btn-outline.btn-tweet:hover .badge.outline {
+    --tw-border-opacity: 1;
+    /*border-color: hsl(var(--pc) / var(--tw-border-opacity));*/
+    border-color: #1DA1F2;
+    --tw-bg-opacity: 1;
+    /*background-color: hsl(var(--pf, var(--p)) / var(--tw-bg-opacity));*/
+    background-color: #1DA1F2;
+    --tw-text-opacity: 1;
+    /*color: hsl(var(--pc) / var(--tw-text-opacity));*/
+    color: #1DA1F2;
+}
+.btn-tweet {
+    --tw-border-opacity: 1;
+    /*border-color: hsl(var(--p) / var(--tw-border-opacity));*/
+    border-color: #1DA1F2;
+    --tw-bg-opacity: 1;
+    /*background-color: hsl(var(--p) / var(--tw-bg-opacity));*/
+    background-color: #1DA1F2;
+    --tw-text-opacity: 1;
+    /*color: hsl(var(--pc) / var(--tw-text-opacity));*/
+    color: #F5F8FA;
+}
+.btn-tweet:hover, .btn-tweet.btn-active {
+    --tw-border-opacity: 1;
+    /*border-color: hsl(var(--pf, var(--p)) / var(--tw-border-opacity));*/
+    border-color: #1DA1F2;
+    --tw-bg-opacity: 1;
+    /*background-color: hsl(var(--pf, var(--p)) / var(--tw-bg-opacity));*/
+    background-color: #1DA1F2;
+}
+.btn-tweet:hover, .btn-tweet.btn-active {
+    --tw-border-opacity: 1;
+    /*border-color: hsl(var(--pf, var(--p)) / var(--tw-border-opacity));*/
+    border-color: #1DA1F2;
+    --tw-bg-opacity: 1;
+    /*background-color: hsl(var(--pf, var(--p)) / var(--tw-bg-opacity));*/
+    background-color: #1DA1F2;
+}
+.btn-tweet:focus-visible {
+    outline: 2px solid hsl(var(--p));
+}
+.btn-outline.btn-tweet {
+    --tw-text-opacity: 1;
+    /*color: hsl(var(--p) / var(--tw-text-opacity));*/
+    color: #1DA1F2;
+}
+.btn-outline.btn-tweet:hover {
+    --tw-border-opacity: 1;
+    /*border-color: hsl(var(--pf, var(--p)) / var(--tw-border-opacity));*/
+    border-color: #1DA1F2;
+    --tw-bg-opacity: 1;
+    /*background-color: hsl(var(--pf, var(--p)) / var(--tw-bg-opacity));*/
+    background-color: #1DA1F2;
+    --tw-text-opacity: 1;
+    /*color: hsl(var(--pc) / var(--tw-text-opacity));*/
+    color: #1DA1F2;
+}
+.drawer-toggle:focus-visible ~ .drawer-content .drawer-button.btn-tweet {
+    outline: 2px solid hsl(var(--p));
+}
