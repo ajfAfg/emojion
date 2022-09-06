@@ -14,7 +14,7 @@ export const CopyButton: FC<Props> = ({ onClick }) => {
 
   return !isClicked ? (
     <div className="tooltip tooltip-secondary" data-tip="copy">
-      <button className="btn btn-square mx-4" onClick={copy}>
+      <button className="btn btn-square" onClick={copy}>
         <span className="material-symbols-outlined">file_copy</span>
       </button>
     </div>
@@ -24,7 +24,7 @@ export const CopyButton: FC<Props> = ({ onClick }) => {
       data-tip="copied!"
       data-testid="copied"
     >
-      <button className="btn btn-square mx-4">
+      <button className="btn btn-square">
         <span className="material-symbols-outlined">file_copy</span>
       </button>
     </div>
