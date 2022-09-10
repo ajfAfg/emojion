@@ -6,10 +6,18 @@ import { BaseEmoji, EmojiData } from "emoji-mart";
 export const EmojiInputArea: FC = () => {
   const [emoji, setEmoji] = useState<string>("");
 
+  const modalId = "emoji-picker";
+  const removeEmojiPicker = () => {
+    // NOTE:
+    // Since DaisyUI's modal display is controlled by whether or not the input element is checked,
+    // we check it to hide the modal.
+    const element = document.getElementById(modalId)! as HTMLInputElement;
+    element.checked = false;
+  };
   const onEmojiSelect = (emoji: EmojiData) => {
     const { native } = emoji as BaseEmoji; // NOTE: does not support custom emoji
-    console.log(native);
     setEmoji(native);
+    removeEmojiPicker();
   };
 
   // NOTE:
@@ -26,19 +34,14 @@ export const EmojiInputArea: FC = () => {
     });
   });
 
-  const modalId = "emoji-picker";
   useEffect(() => {
-    const removeEmojiPicker = ({ key }: KeyboardEvent) => {
+    const handleKeydown = ({ key }: KeyboardEvent) => {
       if (key === "Escape") {
-        // NOTE:
-        // Since DaisyUI's modal display is controlled by whether or not the input element is checked,
-        // we check it to hide the modal.
-        const element = document.getElementById(modalId)! as HTMLInputElement;
-        element.checked = false;
+        removeEmojiPicker();
       }
     };
-    document.addEventListener("keydown", removeEmojiPicker);
-    return () => document.removeEventListener("keydown", removeEmojiPicker);
+    document.addEventListener("keydown", handleKeydown);
+    return () => document.removeEventListener("keydown", handleKeydown);
   }, []);
 
   return (
