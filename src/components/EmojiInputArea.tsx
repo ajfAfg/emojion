@@ -27,7 +27,7 @@ export const EmojiInputArea: FC = () => {
     // NOTE: **Contribute Chance**
     // The URLs are different fro png and svg, but the `parse` function does not support it.
     twemoji.parse(document.body, {
-      base: "https://twemoji.maxcdn.com/v/latest/svg/",
+      base: "https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/",
       ext: ".svg",
       className: "w-full h-full",
       size: "/",
