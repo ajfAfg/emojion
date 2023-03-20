@@ -44,15 +44,17 @@ export const EmojiInputArea: FC = () => {
     return () => document.removeEventListener("keydown", handleKeydown);
   }, []);
 
+  const className = "w-60 h-60 mx-auto mt-12 flex justify-center items-center ";
+
   return (
     <>
       <label htmlFor={modalId} className="modal-button">
-        {!emoji ? (
-          <div className="bg-transparent w-60 h-60 mx-auto mt-12 rounded-full border-dashed border-2 flex items-center justify-center">
+        {emoji ? (
+          <div className={className + "text-[15rem]"}>{emoji}</div>
+        ) : (
+          <div className={className + "rounded-full border-dashed border-2"}>
             <span className="text-2xl text-neutral">Select emoji</span>
           </div>
-        ) : (
-          <p className="w-60 h-60 mx-auto mt-12">{emoji}</p>
         )}
       </label>
 
