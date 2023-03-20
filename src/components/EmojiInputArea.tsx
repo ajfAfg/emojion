@@ -1,10 +1,11 @@
 import { EmojiPicker } from "./EmojiPicker";
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect } from "react";
 import twemoji from "twemoji";
 import { BaseEmoji, EmojiData } from "emoji-mart";
+import { useEmojiState } from "@/hooks/useEmojiState";
 
 export const EmojiInputArea: FC = () => {
-  const [emoji, setEmoji] = useState<string>("");
+  const [emoji, setEmoji] = useEmojiState();
 
   const modalId = "emoji-picker";
   const removeEmojiPicker = () => {

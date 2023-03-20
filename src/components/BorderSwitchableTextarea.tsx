@@ -1,8 +1,9 @@
-import { ChangeEvent, useState } from "react";
+import { useTextState } from "@/hooks/useTextState";
+import { ChangeEvent } from "react";
 import ReactTextareaAutosize from "react-textarea-autosize";
 
 export const BorderSwitchableTextarea = () => {
-  const [text, setText] = useState("");
+  const [text, setText] = useTextState();
 
   const className =
     "max-w-full mx-32 my-8 sm:w-[35rem] textarea resize-none text-neutral text-center bg-transparent focus:textarea-accent" +
