@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 export const useQueryState = (key: string) => {
   const router = useRouter();
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState<string | null>(null);
 
   // NOTE: Query parameter -> React
   useEffect(() => {
@@ -21,7 +21,7 @@ export const useQueryState = (key: string) => {
 
   // NOTE: React -> Query parameter
   useEffect(() => {
-    if (router.isReady) {
+    if (router.isReady && value !== null) {
       router.replace({ query: { ...router.query, [key]: value } });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -20,7 +20,7 @@ export const BorderSwitchableTextarea = () => {
       className={className}
       placeholder="Type here"
       minRows={2}
-      value={text}
+      value={text ?? ""}
       onChange={onChange}
       data-testid="non-border"
     />
