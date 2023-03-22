@@ -17,7 +17,6 @@ const Home: NextPage<Props> = (props) => {
   );
   const imageAlt = `${props.emoji}: ${props.text}`;
 
-  console.log(props);
   useEffect(() => {
     if (typeof window !== "undefined") {
       setImageUrl(
