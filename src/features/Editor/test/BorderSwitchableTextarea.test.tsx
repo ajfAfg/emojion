@@ -1,4 +1,4 @@
-import { BorderSwitchableTextarea } from "@/components/BorderSwitchableTextarea";
+import { BorderSwitchableTextarea } from "../components/BorderSwitchableTextarea";
 import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 

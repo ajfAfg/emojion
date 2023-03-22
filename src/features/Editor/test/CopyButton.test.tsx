@@ -1,4 +1,4 @@
-import { CopyButton } from "@/components/CopyButton";
+import { CopyButton } from "../components/CopyButton";
 import { render, fireEvent } from "@testing-library/react";
 
 describe("CopyButton", () => {
