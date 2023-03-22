@@ -1,9 +1,9 @@
 import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import { Editor } from "@/components/Editor";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { Editor } from "@/features/Editor";
+import { Header } from "@/features/Header";
+import { Footer } from "@/features/Footer";
 
 type Props = {
   host: string;
@@ -17,7 +17,6 @@ const Home: NextPage<Props> = (props) => {
   );
   const imageAlt = `${props.emoji}: ${props.text}`;
 
-  console.log(props);
   useEffect(() => {
     if (typeof window !== "undefined") {
       setImageUrl(

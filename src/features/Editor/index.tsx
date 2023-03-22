@@ -1,8 +1,8 @@
 import axios from "axios";
 import domtoimage from "dom-to-image";
 import { FC } from "react";
-import { Canvas } from "./Canvas";
-import { CopyButton } from "./CopyButton";
+import { Canvas } from "./components/Canvas";
+import { CopyButton } from "./components/CopyButton";
 
 export const Editor: FC = () => {
   const exportImage = () => {
